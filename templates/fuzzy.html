@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estimasi Harga Jersey — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+
+          <div class="page-header">
+
+            <h1 class="page-title">ESTIMASI HARGA JERSEY</h1>
+            <p class="page-desc">Masukkan parameter desain dan spesifikasi jersey. Sistem akan menghitung estimasi harga menggunakan logika fuzzy Mamdani melalui JerseyCek.</p>
+          </div>
+
+          <!-- WRAPPER FOR BOTH SECTIONS -->
+          <div class="fuzzy-content-area">
+
+            <!-- INPUT SECTION (MULTI-STEP) -->
+            <div class="input-section" id="input-section">
+
+              <div class="step-progress">
+                <div class="sp-dot active" id="dot-1"></div>
+                <div class="sp-dot" id="dot-2"></div>
+                <div class="sp-dot" id="dot-3"></div>
+                <div class="sp-dot" id="dot-4"></div>
+                <div class="sp-dot" id="dot-5"></div>
+              </div>
+              
+              <!-- STEP 1 -->
+              <div class="step active" id="step-1">
+                <div class="panel">
+                  <div class="panel-title">01. Kerumitan Desain</div>
+                  <div class="field">
+                    <label>Skala Kompleksitas <span class="label-hint">0 (Sederhana) - 10 (Sangat Kompleks)</span></label>
+                    <div class="slider-wrap">
+                      <input type="range" id="kerumitan" min="0" max="10" step="0.1" value="5" oninput="syncSlider(this,'kerumitan-val')"/>
+                      <div class="slider-val" id="kerumitan-val">5.0</div>
+                    </div>
+                  </div>
+                  <div class="step-nav">
+                    <button class="btn btn-primary btn-full" onclick="nextStep(2)">Lanjut</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="step" id="step-2">
+                <div class="panel">
+                  <div class="panel-title">02. Jumlah Warna</div>
+                  <div class="field">
+                    <label>Total Warna dalam Desain</label>
+                    <div class="slider-wrap">
+                      <input type="range" id="warna" min="1" max="12" step="1" value="4" oninput="syncSlider(this,'warna-val')"/>
+                      <div class="slider-val" id="warna-val">4</div>
+                    </div>
+                  </div>
+                  <div class="step-nav">
+                    <button class="btn btn-ghost" onclick="nextStep(1)">Kembali</button>
+                    <button class="btn btn-primary btn-full" onclick="nextStep(3)">Lanjut</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div class="step" id="step-3">
+                <div class="panel">
+                  <div class="panel-title">03. Jenis Material</div>
+                  <div class="field">
+                    <div class="selection-grid" id="material-group">
+                      <div class="selection-card selected" data-val="1.0">
+                        <div class="sc-title">Polyester Biasa</div>
+                        <div class="sc-desc">Standar jersey, pori-pori sedang, sirkulasi udara baik.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.25">
+                        <div class="sc-title">Polyester Premium</div>
+                        <div class="sc-desc">Serat lebih halus, lebih ringan, dan tahan lama.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.5">
+                        <div class="sc-title">Dry-Fit / Mikro</div>
+                        <div class="sc-desc">Sangat ringan, cepat menyerap keringat, elastis.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.8">
+                        <div class="sc-title">Grade Ori / Import</div>
+                        <div class="sc-desc">Kualitas tertinggi, tekstur menyerupai jersey autentik.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step-nav">
+                    <button class="btn btn-ghost" onclick="nextStep(2)">Kembali</button>
+                    <button class="btn btn-primary btn-full" onclick="nextStep(4)">Lanjut</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 4 -->
+              <div class="step" id="step-4">
+                <div class="panel">
+                  <div class="panel-title">04. Teknik Printing</div>
+                  <div class="field">
+                    <div class="selection-grid" id="teknik-group">
+                      <div class="selection-card selected" data-val="1.0">
+                        <div class="sc-title">Sublimasi Full</div>
+                        <div class="sc-desc">Tinta menyerap ke serat kain, warna tajam dan permanen.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.3">
+                        <div class="sc-title">DTF (Direct Transfer Film)</div>
+                        <div class="sc-desc">Hasil cetak bertekstur, warna solid, cocok untuk logo.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.15">
+                        <div class="sc-title">Sablon Manual</div>
+                        <div class="sc-desc">Menggunakan screen, warna sangat awet dan tebal.</div>
+                      </div>
+                      <div class="selection-card" data-val="1.5">
+                        <div class="sc-title">Bordir Digital</div>
+                        <div class="sc-desc">Hasil jahitan rapi dan mewah, memberikan efek 3D.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step-nav">
+                    <button class="btn btn-ghost" onclick="nextStep(3)">Kembali</button>
+                    <button class="btn btn-primary btn-full" onclick="nextStep(5)">Lanjut</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 5 -->
+              <div class="step" id="step-5">
+                <div class="panel">
+                  <div class="panel-title">05. Jumlah Order</div>
+                  <div class="field">
+                    <label>Kuantitas Pesanan (Pcs)</label>
+                    <div class="slider-wrap">
+                      <input type="range" id="qty" min="1" max="200" step="1" value="20" oninput="syncSlider(this,'qty-val')"/>
+                      <div class="slider-val" id="qty-val">20</div>
+                    </div>
+                  </div>
+                  <div class="step-nav">
+                    <button class="btn btn-ghost" onclick="nextStep(4)">Kembali</button>
+                    <button class="btn btn-primary btn-full" id="btn-hitung" onclick="hitungFuzzy()">Hitung Estimasi Harga</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RESULT SECTION -->
+            <div id="result-panel" class="result-panel hidden">
+              
+              <div class="page-header">
+                <div class="page-tag">● Hasil Analisis</div>
+                <h1 class="page-title">ESTIMASI SELESAI</h1>
+                <p class="page-desc">Berikut adalah ringkasan pesanan dan hasil perhitungan logika fuzzy.</p>
+              </div>
+
+              <!-- PANEL 1: RINGKASAN PESANAN -->
+              <div class="panel">
+                <div class="panel-title">Ringkasan Pesanan</div>
+                <div class="insight-box" id="insight-box">
+                  <!-- Will be populated by JS -->
+                </div>
+              </div>
+
+              <!-- PANEL 2: HASIL ESTIMASI FUZZY -->
+              <div class="panel">
+                <div class="panel-title">Hasil Estimasi Fuzzy</div>
+
+                <div class="price-hero">
+                  <div class="price-main" id="res-harga">Rp —</div>
+                  <div class="price-range" id="res-range">per pcs</div>
+                </div>
+
+                <div class="membership-grid">
+                  <div class="mg-item">
+                    <div class="mg-label">Kerumitan</div>
+                    <div class="mg-val" id="res-ker-label">—</div>
+                  </div>
+                  <div class="mg-item">
+                    <div class="mg-label">Warna</div>
+                    <div class="mg-val" id="res-war-label">—</div>
+                  </div>
+                  <div class="mg-item">
+                    <div class="mg-label">Kategori</div>
+                    <div class="mg-val" id="res-kategori">—</div>
+                  </div>
+                </div>
+
+                <div class="bars-section">
+                  <div class="bar-item">
+                    <div class="bar-header"><span>Murah</span><span id="pct-murah">0%</span></div>
+                    <div class="bar-track"><div class="bar-fill fill-green" id="bar-murah"></div></div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-header"><span>Sedang</span><span id="pct-sedang">0%</span></div>
+                    <div class="bar-track"><div class="bar-fill fill-yellow" id="bar-sedang"></div></div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-header"><span>Mahal / Premium</span><span id="pct-mahal">0%</span></div>
+                    <div class="bar-track"><div class="bar-fill fill-red" id="bar-mahal"></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="text-align: center; margin-bottom: 3rem;">
+                <button class="btn btn-ghost" onclick="resetFuzzy()">Hitung Pesanan Lain</button>
+              </div>
+
+            </div>
+
+          </div><!-- /fuzzy-content-area -->
+
+        </div>
+      </main>
+
+      <footer class="footer"><div class="container"></div></footer>
+    </div>
+  </div>
+  <script src="/static/js/fuzzy.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Manajemen — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+          <div class="page-header">
+
+            <h1 class="page-title">DASHBOARD MANAJEMEN</h1>
+            <p class="page-desc">Gambaran umum statistik basis pengetahuan sistem cerdas JerseyCek.</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="stat-val">09</div>
+              
+            </div>
+            <div class="info-item">
+              <div class="stat-val">12</div>
+              <div class="stat-label">Gejala Terdata</div>
+            </div>
+            <div class="info-item">
+              <div class="stat-val">04</div>
+              
+            </div>
+            <div class="info-item">
+              <div class="stat-val">04</div>
+              <div class="stat-label">Himpunan Output</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 3rem;">
+            <div class="panel">
+              
+              <p style="color: var(--muted); font-size: 0.9rem;">Sistem berjalan dengan normal. Semua parameter fuzzy dan basis pengetahuan sistem pakar telah dimuat dengan benar ke dalam memori server.</p>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <footer class="footer"><div class="container"></div></footer>
+    </div>
+  </div>
+</body>
+</html>

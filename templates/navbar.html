@@ -1,0 +1,32 @@
+<!-- Font Awesome for Sidebar Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<aside class="sidebar">
+  <div class="nav-logo-wrap">
+    <a href="/" class="nav-logo">JerseyCek</a>
+  </div>
+  
+  <div class="nav-links">
+    <div style="font-size: 0.6rem; font-weight: 800; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; padding: 10px 16px;">Sistem Cerdas</div>
+
+    <a href="/fuzzy" class="nav-link {% if request.path == '/fuzzy' %}active{% endif %}">
+      <i class="fa-solid fa-calculator"></i> <span>Sistem Fuzzy</span>
+    </a>
+    <a href="/pakar" class="nav-link {% if request.path == '/pakar' %}active{% endif %}">
+      <i class="fa-solid fa-stethoscope"></i> <span>Sistem Pakar</span>
+    </a>
+
+    <div style="margin: 0.5rem 0; border-top: 1px solid rgba(255,255,255,0.1);"></div>
+    <div style="font-size: 0.6rem; font-weight: 800; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; padding: 10px 16px;">Basis Pengetahuan</div>
+
+    <a href="/data-aturan" class="nav-link {% if request.path == '/data-aturan' %}active{% endif %}">
+      <i class="fa-solid fa-list-check"></i> <span>Data Aturan</span>
+    </a>
+    <a href="/data-gejala" class="nav-link {% if request.path == '/data-gejala' %}active{% endif %}">
+      <i class="fa-solid fa-vial"></i> <span>Data Gejala</span>
+    </a>
+    <a href="/basis" class="nav-link {% if request.path == '/basis' %}active{% endif %}">
+      <i class="fa-solid fa-book"></i> <span>Data Solusi</span>
+    </a>
+  </div>
+</aside>

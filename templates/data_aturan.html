@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Aturan Fuzzy — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+          <div class="page-header">
+
+            <h1 class="page-title">DATA ATURAN</h1>
+            <p class="page-desc">Basis aturan IF-THEN yang digunakan untuk menentukan estimasi harga produksi.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th width="80">Kode</th>
+                  <th>Aturan (Rule Logic)</th>
+                  <th width="150">Output</th>
+                  <th width="180">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-rule">R1</span></td>
+                  <td>IF <strong>Kerumitan Rendah</strong> AND <strong>Warna Sedikit</strong></td>
+                  <td><span class="badge badge-pro">MURAH</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R1', 'Kerumitan Rendah AND Warna Sedikit', 'MURAH')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R1', 'Kerumitan Rendah AND Warna Sedikit', 'MURAH')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R2</span></td>
+                  <td>IF <strong>Kerumitan Rendah</strong> AND <strong>Warna Sedang</strong></td>
+                  <td><span class="badge badge-pro">MURAH</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R2', 'Kerumitan Rendah AND Warna Sedang', 'MURAH')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R2', 'Kerumitan Rendah AND Warna Sedang', 'MURAH')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R3</span></td>
+                  <td>IF <strong>Kerumitan Rendah</strong> AND <strong>Warna Banyak</strong></td>
+                  <td><span class="badge badge-pro">SEDANG</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R3', 'Kerumitan Rendah AND Warna Banyak', 'SEDANG')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R3', 'Kerumitan Rendah AND Warna Banyak', 'SEDANG')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R4</span></td>
+                  <td>IF <strong>Kerumitan Sedang</strong> AND <strong>Warna Sedikit</strong></td>
+                  <td><span class="badge badge-pro">MURAH</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R4', 'Kerumitan Sedang AND Warna Sedikit', 'MURAH')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R4', 'Kerumitan Sedang AND Warna Sedikit', 'MURAH')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R5</span></td>
+                  <td>IF <strong>Kerumitan Sedang</strong> AND <strong>Warna Sedang</strong></td>
+                  <td><span class="badge badge-pro">SEDANG</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R5', 'Kerumitan Sedang AND Warna Sedang', 'SEDANG')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R5', 'Kerumitan Sedang AND Warna Sedang', 'SEDANG')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R6</span></td>
+                  <td>IF <strong>Kerumitan Sedang</strong> AND <strong>Warna Banyak</strong></td>
+                  <td><span class="badge badge-pro">MAHAL</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R6', 'Kerumitan Sedang AND Warna Banyak', 'MAHAL')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R6', 'Kerumitan Sedang AND Warna Banyak', 'MAHAL')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R7</span></td>
+                  <td>IF <strong>Kerumitan Tinggi</strong> AND <strong>Warna Sedikit</strong></td>
+                  <td><span class="badge badge-pro">SEDANG</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R7', 'Kerumitan Tinggi AND Warna Sedikit', 'SEDANG')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R7', 'Kerumitan Tinggi AND Warna Sedikit', 'SEDANG')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R8</span></td>
+                  <td>IF <strong>Kerumitan Tinggi</strong> AND <strong>Warna Sedang</strong></td>
+                  <td><span class="badge badge-pro">MAHAL</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R8', 'Kerumitan Tinggi AND Warna Sedang', 'MAHAL')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R8', 'Kerumitan Tinggi AND Warna Sedang', 'MAHAL')">Edit</button></div></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-rule">R9</span></td>
+                  <td>IF <strong>Kerumitan Tinggi</strong> AND <strong>Warna Banyak</strong></td>
+                  <td><span class="badge badge-pro">SANGAT MAHAL</span></td>
+                  <td><div class="action-btns"><button class="btn btn-ghost btn-sm" onclick="detailAturan('R9', 'Kerumitan Tinggi AND Warna Banyak', 'SANGAT MAHAL')">Detail</button><button class="btn btn-ghost btn-sm" onclick="editAturan('R9', 'Kerumitan Tinggi AND Warna Banyak', 'SANGAT MAHAL')">Edit</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      <footer class="footer"><div class="container"></div></footer>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function detailAturan(kode, kondisi, output) {
+      Swal.fire({
+        title: 'Detail Aturan ' + kode,
+        html: `<div style="text-align: left;">
+                 <p style="margin-bottom:0.5rem;color:var(--muted);font-size:0.8rem;text-transform:uppercase;font-weight:700;">Premis (IF)</p>
+                 <p style="margin-bottom:1rem;font-size:1rem;">${kondisi}</p>
+                 <p style="margin-bottom:0.5rem;color:var(--muted);font-size:0.8rem;text-transform:uppercase;font-weight:700;">Konklusi (THEN)</p>
+                 <p><span class="badge badge-pro" style="font-size:1rem;padding:6px 12px;">${output}</span></p>
+               </div>`,
+        icon: 'info',
+        confirmButtonText: 'Tutup',
+        confirmButtonColor: '#e8455a'
+      });
+    }
+
+    function editAturan(kode, rule, output) {
+      Swal.fire({
+        title: 'Edit Aturan ' + kode,
+        html: `
+          <div style="text-align:left; margin-bottom: 0.5rem;"><label style="font-size:0.8rem;font-weight:700;color:var(--dim)">Premis (Kondisi)</label></div>
+          <input id="swal-input1" class="swal2-input" value="${rule}" style="width: 85%; font-size: 0.9rem; margin-top:0;">
+          <div style="text-align:left; margin-top: 1rem; margin-bottom: 0.5rem;"><label style="font-size:0.8rem;font-weight:700;color:var(--dim)">Output Target</label></div>
+          <select id="swal-input2" class="swal2-input" style="width: 85%; margin-top:0;">
+            <option value="MURAH" ${output==='MURAH'?'selected':''}>MURAH</option>
+            <option value="SEDANG" ${output==='SEDANG'?'selected':''}>SEDANG</option>
+            <option value="MAHAL" ${output==='MAHAL'?'selected':''}>MAHAL</option>
+            <option value="SANGAT MAHAL" ${output==='SANGAT MAHAL'?'selected':''}>SANGAT MAHAL</option>
+          </select>
+        `,
+        focusConfirm: false,
+        showCancelButton: true,
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Simpan',
+        confirmButtonColor: '#e8455a',
+        preConfirm: () => {
+          return [
+            document.getElementById('swal-input1').value,
+            document.getElementById('swal-input2').value
+          ]
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Tersimpan!',
+            text: 'Perubahan pada ' + kode + ' berhasil diperbarui pada memori.',
+            icon: 'success',
+            confirmButtonColor: '#e8455a',
+            confirmButtonText: 'Selesai'
+          })
+        }
+      });
+    }
+  </script>
+</body>
+</html>

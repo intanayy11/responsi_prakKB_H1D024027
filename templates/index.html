@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JerseyCek — Sistem Cerdas Printing Jersey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main>
+        <section class="hero">
+          <div class="hero-inner">
+
+            <h1 class="hero-title">
+              <span class="line1">JERSEY</span>
+              <span class="line2">CEK SYSTEM</span>
+            </h1>
+            <p class="hero-desc">
+              Solusi manajemen produksi jersey terintegrasi. Hitung estimasi biaya produksi dan diagnosa kendala teknis dalam satu platform cerdas.
+            </p>
+            <div class="hero-cards">
+              <a href="/fuzzy" class="hero-card fuzzy-card">
+                <div class="hc-title">Estimasi Harga</div>
+                <div class="hc-sub">Sistem Fuzzy Mamdani</div>
+                <div class="hc-desc">Hitung estimasi harga jersey berdasarkan kerumitan desain dan jumlah warna secara otomatis.</div>
+                <div class="hc-arrow">→</div>
+              </a>
+              <a href="/pakar" class="hero-card expert-card">
+                <div class="hc-title">Diagnosa Masalah</div>
+                <div class="hc-sub">Forward Chaining</div>
+                <div class="hc-desc">Identifikasi dan diagnosa masalah dalam proses printing jersey berdasarkan gejala yang ditemukan.</div>
+                <div class="hc-arrow">→</div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-section">
+          <div class="container">
+            <div class="info-grid info-grid-4">
+              <div class="info-item">
+                <div class="ii-num">01</div>
+                <div class="ii-title">Fuzzy Mamdani</div>
+                <div class="ii-desc">Inferensi dari 9 aturan fuzzy dengan defuzzifikasi metode centroid untuk estimasi harga yang akurat.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-num">02</div>
+                <div class="ii-title">Forward Chaining</div>
+                <div class="ii-desc">Mulai dari fakta (gejala) menuju konklusi (diagnosa) menggunakan 10 basis pengetahuan masalah printing.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-num">03</div>
+                <div class="ii-title">Analisis Masalah</div>
+                <div class="ii-desc">Basis pengetahuan yang mencakup berbagai kendala teknis pada teknik sublimasi dan DTF.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-num">04</div>
+                <div class="ii-title">29 Gejala</div>
+                <div class="ii-desc">Basis pengetahuan mencakup 29 gejala yang dipetakan ke 10 jenis masalah produksi jersey.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <span></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

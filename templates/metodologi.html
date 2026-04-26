@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metodologi — JerseySmart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+          <div class="page-header">
+            <div class="page-tag tag-fuzzy">● Metodologi · Logika Sistem</div>
+            <h1 class="page-title">ALUR & LOGIKA SISTEM</h1>
+            <p class="page-desc">Penjelasan teknis mengenai metode Fuzzy Mamdani dan Forward Chaining yang digunakan.</p>
+          </div>
+
+          <div class="layout-2col">
+            <!-- Fuzzy Logic -->
+            <div class="panel">
+              <div class="panel-title">1. Fuzzy Mamdani (Estimasi Harga)</div>
+              <p class="method-desc">Metode ini menangani ketidakpastian dalam menentukan harga berdasarkan variabel yang bersifat subjektif seperti "Kerumitan".</p>
+              
+              <div class="method-sub tag-fuzzy">Tahapan:</div>
+              <ul class="method-list">
+                <li><strong>Fuzzification</strong>: Mengubah input numerik menjadi nilai linguistik (Misal: Kerumitan 7.5 -> "Tinggi").</li>
+                <li><strong>Inference</strong>: Mengevaluasi 9 aturan fuzzy (Rules) untuk menentukan kategori harga.</li>
+                <li><strong>Composition</strong>: Menggabungkan hasil dari semua aturan yang aktif.</li>
+                <li><strong>Defuzzification</strong>: Menggunakan metode <strong>Centroid</strong> untuk mendapatkan nilai rupiah tunggal.</li>
+              </ul>
+            </div>
+
+            <!-- Expert System -->
+            <div class="panel">
+              <div class="panel-title">2. Forward Chaining (Diagnosa)</div>
+              <p class="method-desc">Metode penalaran yang dimulai dari sekumpulan fakta (gejala) menuju kesimpulan (masalah).</p>
+              
+              <div class="method-sub tag-expert">Tahapan:</div>
+              <ul class="method-list">
+                <li><strong>Data Driven</strong>: Pengguna memberikan fakta berupa gejala yang ditemukan.</li>
+                <li><strong>Pattern Matching</strong>: Sistem mencocokkan pola gejala tersebut dengan basis aturan (IF-THEN).</li>
+                <li><strong>Certainty Factor</strong>: Menghitung tingkat keyakinan (Confidence Level) berdasarkan kecocokan gejala.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Arsitektur Teknologi</div>
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="ii-title">Backend</div>
+                <div class="ii-desc">Python Flask - Menangani logika inferensi fuzzy dan mesin sistem pakar secara efisien.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-title">Frontend</div>
+                <div class="ii-desc">Vanilla JS & CSS - Antarmuka responsif tanpa framework berat, menjaga kecepatan sistem.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-title">Deployment</div>
+                <div class="info-desc">Vercel Serverless - Memungkinkan sistem diakses secara online dengan skalabilitas tinggi.</div>
+              </div>
+              <div class="info-item">
+                <div class="ii-title">Data Format</div>
+                <div class="ii-desc">JSON API - Komunikasi data antara frontend dan backend dilakukan secara asinkron.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"><div class="container">JerseySmart · Methodology · 2026</div></footer>
+    </div>
+  </div>
+</body>
+</html>

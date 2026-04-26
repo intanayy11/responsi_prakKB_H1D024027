@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Basis Pengetahuan — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+          <div class="page-header">
+
+            <h1 class="page-title">DATA BASIS PENGETAHUAN</h1>
+            <p class="page-desc">Daftar gejala teknis dan kategori masalah produksi yang terdaftar dalam sistem.</p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Daftar Gejala (Symptoms)</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th width="80">Kode</th>
+                    <th>Nama Gejala</th>
+                    <th width="180">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>G01</td>
+                    <td>Hasil cetak warna terlihat pudar atau tidak tajam</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G02</td>
+                    <td>Terdapat bintik putih atau area tidak ter-print</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G03</td>
+                    <td>Warna tinta tidak merata di seluruh permukaan</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G04</td>
+                    <td>Kain mengerut atau tidak rata setelah proses press</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G05</td>
+                    <td>Terdapat noda tinta di area yang seharusnya bersih</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G06</td>
+                    <td>Detail kecil pada desain terlihat blur</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G07</td>
+                    <td>Kertas transfer menempel terlalu kuat pada kain</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G08</td>
+                    <td>Muncul bau terbakar yang menyengat saat proses heatpress</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G09</td>
+                    <td>Hasil cetakan terasa lengket atau belum kering sempurna</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G10</td>
+                    <td>Garis desain terlihat pecah atau zigzag (aliasing)</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G11</td>
+                    <td>Warna hitam terlihat kecokelatan atau tidak pekat</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>G12</td>
+                    <td>Permukaan kain terasa kasar atau terbakar</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top: 3rem;">
+            <div class="panel-title">Kategori Masalah (Diagnosis)</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th width="80">ID</th>
+                    <th>Nama Masalah</th>
+                    <th>Solusi Dasar</th>
+                    <th width="120">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>P01</td>
+                    <td><span class="badge badge-rule">Masalah Kualitas Cetak</span></td>
+                    <td>Lakukan pembersihan head printer (head cleaning) dan cek level tinta.</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>P02</td>
+                    <td><span class="badge badge-rule">Kendala Suhu/Tekanan</span></td>
+                    <td>Kalibrasi ulang mesin press, cek suhu termometer eksternal.</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>P03</td>
+                    <td><span class="badge badge-rule">Kontaminasi Tinta/Media</span></td>
+                    <td>Pastikan media bersih dari debu dan gunakan kertas transfer berkualitas.</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>P04</td>
+                    <td><span class="badge badge-rule">Kegagalan Setting Desain</span></td>
+                    <td>Gunakan profil warna (ICC Profile) yang sesuai dan resolusi file minimal 300dpi.</td>
+                    <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container"></div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('click', function(e) {
+      if(e.target && e.target.classList.contains('btn-ghost') && e.target.textContent === 'Edit') {
+        const row = e.target.closest('tr');
+        const cells = row.querySelectorAll('td');
+        const id = cells[0].textContent.trim();
+        
+        // Handle badge if it exists (for Diagnosis table)
+        let text = "";
+        let isDiagnosis = false;
+        let badgeHtml = "";
+        if(cells[1].querySelector('.badge')) {
+          isDiagnosis = true;
+          badgeHtml = cells[1].innerHTML;
+          text = cells[2].textContent.trim(); // Solusi is in 3rd col
+        } else {
+          text = cells[1].textContent.trim();
+        }
+        
+        Swal.fire({
+          title: 'Edit Data ' + id,
+          html: `
+            <div style="text-align:left; margin-bottom: 0.5rem;"><label style="font-size:0.8rem;font-weight:700;color:var(--dim)">${isDiagnosis ? 'Solusi / Penanganan' : 'Nama Gejala'}</label></div>
+            <textarea id="swal-input1" class="swal2-textarea" style="width: 85%; font-size: 0.9rem; margin-top:0;">${text}</textarea>
+          `,
+          focusConfirm: false,
+          showCancelButton: true,
+          cancelButtonText: 'Batal',
+          confirmButtonText: 'Simpan',
+          confirmButtonColor: '#e8455a',
+          preConfirm: () => {
+            return document.getElementById('swal-input1').value
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if(isDiagnosis) {
+               cells[2].textContent = result.value;
+            } else {
+               cells[1].textContent = result.value;
+            }
+            
+            Swal.fire({
+              title: 'Tersimpan!',
+              text: 'Perubahan pada ' + id + ' berhasil diperbarui pada memori sementara.',
+              icon: 'success',
+              confirmButtonColor: '#e8455a',
+              confirmButtonText: 'Selesai'
+            })
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

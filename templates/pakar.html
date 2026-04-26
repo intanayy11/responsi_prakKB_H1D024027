@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagnosa Masalah — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+
+          <div class="page-header">
+
+            <h1 class="page-title">DIAGNOSA MASALAH PRINTING</h1>
+            <p class="page-desc">Centang gejala yang Anda temukan pada proses printing jersey. JerseyCek akan mendiagnosa penyebab dan memberikan solusi.</p>
+          </div>
+
+          <!-- GEJALA GRID -->
+          <div class="panel">
+            <div class="panel-title">Pilih Gejala yang Ditemukan</div>
+            <div class="gejala-grid" id="gejala-grid">
+              <!-- Diisi oleh JS dari API -->
+              <div class="loading-text">Memuat daftar gejala...</div>
+            </div>
+            <div class="gejala-actions">
+              <button class="btn btn-expert btn-full" id="btn-diagnosa" onclick="jalankanDiagnosa()">
+                Diagnosa Sekarang
+              </button>
+              <button class="btn btn-ghost" onclick="resetGejala()">Reset</button>
+            </div>
+          </div>
+
+          <!-- HASIL DIAGNOSA -->
+          <div id="hasil-panel" class="hidden">
+            <div class="panel-title" style="margin-bottom:1rem;">Hasil Diagnosa Sistem Pakar</div>
+            <div id="hasil-list"></div>
+          </div>
+
+
+
+        </div>
+      </main>
+
+      <footer class="footer"><div class="container"></div></footer>
+    </div>
+  </div>
+  <script src="/static/js/pakar.js"></script>
+</body>
+</html>

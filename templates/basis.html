@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basis Pengetahuan — JerseyCek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="main-layout">
+    {% include 'navbar.html' %}
+    <div class="main-wrapper">
+      <main class="page-main">
+        <div class="container">
+          <div class="page-header">
+
+            <h1 class="page-title">BASIS PENGETAHUAN</h1>
+            <p class="page-desc">Daftar lengkap masalah produksi jersey yang dapat didiagnosa oleh JerseyCek.</p>
+          </div>
+
+          <div class="gejala-grid">
+            <!-- Problem 1 -->
+            <div class="panel" style="margin-bottom: 1.5rem;">
+              <div class="panel-title">Ghosting / Bayangan Tinta</div>
+              <p class="ii-desc" style="margin-bottom: 1rem;">Efek bayangan halus yang muncul di sekitar desain, biasanya terjadi pada teknik sublimasi.</p>
+              <div class="method-sub tag-expert">Penyebab Umum</div>
+              <ul class="method-list" style="margin-bottom: 1rem;">
+                <li>Kertas transfer bergeser saat proses press.</li>
+                <li>Tekanan mesin press tidak merata.</li>
+                <li>Sisa tinta di plat mesin press.</li>
+              </ul>
+              <div class="method-sub tag-expert">Gejala Terkait</div>
+                <div class="symptom-tags">
+                  <span class="sym-tag">G01: Bayangan halus di sekitar desain</span>
+                  <span class="sym-tag">G13: Tinta menempel tidak sempurna</span>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+                  <button class="btn btn-ghost btn-sm" onclick="detailMasalah('Ghosting / Bayangan Tinta', 'Efek bayangan halus yang muncul di sekitar desain.', 'Gunakan adhesive spray berkualitas atau heat-tape untuk menahan kertas transfer agar tidak bergeser saat press.')">Detail</button>
+                </div>
+              </div>
+
+            <!-- Problem 2 -->
+            <div class="panel" style="margin-bottom: 1.5rem;">
+              <div class="panel-title">Bleeding / Tinta Melebar</div>
+              <p class="ii-desc" style="margin-bottom: 1rem;">Tinta menyebar keluar dari batas desain, membuat tepi gambar terlihat kabur atau tidak tajam.</p>
+              <div class="method-sub tag-expert">Penyebab Umum</div>
+              <ul class="method-list" style="margin-bottom: 1rem;">
+                <li>Kain terlalu lembab atau basah.</li>
+                <li>Suhu press terlalu tinggi atau waktu terlalu lama.</li>
+                <li>Jenis tinta tidak sesuai dengan jenis kain.</li>
+              </ul>
+              <div class="method-sub tag-expert">Gejala Terkait</div>
+                <div class="symptom-tags">
+                  <span class="sym-tag">G08: Tinta menyebar (bleeding)</span>
+                  <span class="sym-tag">G09: Tepi desain terlihat berdarah</span>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+                  <button class="btn btn-ghost btn-sm" onclick="detailMasalah('Bleeding / Tinta Melebar', 'Tinta menyebar keluar dari batas desain.', 'Turunkan suhu press sekitar 5-10 derajat atau kurangi waktu press. Pastikan kain dalam keadaan kering sempurna sebelum diproses.')">Detail</button>
+                </div>
+              </div>
+
+            <!-- Problem 3 -->
+            <div class="panel" style="margin-bottom: 1.5rem;">
+              <div class="panel-title">Color Shifting / Warna Tidak Akurat</div>
+              <p class="ii-desc" style="margin-bottom: 1rem;">Hasil cetak memiliki warna yang berbeda jauh dengan file desain asli (misal: merah jadi kecokelatan).</p>
+              <div class="method-sub tag-expert">Penyebab Umum</div>
+              <ul class="method-list" style="margin-bottom: 1rem;">
+                <li>Profil warna (ICC Profile) tidak sesuai.</li>
+                <li>Suhu mesin press tidak stabil.</li>
+                <li>Tinta printer sudah terkontaminasi atau kadaluwarsa.</li>
+              </ul>
+              <div class="method-sub tag-expert">Gejala Terkait</div>
+                <div class="symptom-tags">
+                  <span class="sym-tag">G02: Warna lebih merah/kuning</span>
+                  <span class="sym-tag">G03: Warna terlihat kusam</span>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+                  <button class="btn btn-ghost btn-sm" onclick="detailMasalah('Color Shifting / Warna Tidak Akurat', 'Hasil cetak memiliki warna yang berbeda jauh dengan file desain asli.', 'Lakukan pembersihan head printer secara rutin, gunakan tinta original, dan pastikan setting profil warna di software desain (misal: Corel/Photoshop) sudah sesuai.')">Detail</button>
+                </div>
+              </div>
+          </div>
+
+
+        </div>
+      </main>
+      <footer class="footer"><div class="container"></div></footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function detailMasalah(title, desc, solusi) {
+      Swal.fire({
+        title: title,
+        html: `<div style="text-align: left;">
+                 <p style="margin-bottom:1rem; font-size:0.95rem;">${desc}</p>
+                 <div style="background: var(--surface2); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border);">
+                   <div style="font-weight: 800; font-size: 0.7rem; color: var(--dim); text-transform: uppercase; margin-bottom: 0.5rem;">Langkah Penanganan Utama</div>
+                   <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text);">${solusi}</p>
+                 </div>
+               </div>`,
+        confirmButtonText: 'Tutup',
+        confirmButtonColor: '#e8455a'
+      });
+    }
+  </script>
+</body>
+</html>
