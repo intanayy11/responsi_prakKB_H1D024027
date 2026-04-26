@@ -1,5 +1,10 @@
 import os
+import sys
 from flask import Flask, render_template, request, jsonify
+
+# Add api directory to sys.path for local module imports in Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from sistemfuzzy import hitung_harga_fuzzy
 from sistempakar import diagnosa_masalah
 
